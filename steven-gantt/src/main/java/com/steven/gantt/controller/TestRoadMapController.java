@@ -25,6 +25,10 @@ public class TestRoadMapController {
         return list;
     }
 
+    /**
+     * spring boot 测试
+     * @return
+     */
     @RequestMapping("/test")
     public String test(){
         System.out.println("new day");
