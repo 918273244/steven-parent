@@ -21,6 +21,7 @@
         <org.mybatis.spring.boot>1.1.1</org.mybatis.spring.boot>
         <com.alibaba.druid>1.0.18</com.alibaba.druid>
         <oracle.version>11.2.0</oracle.version>
+        <com.github.pagehelper>4.1.0</com.github.pagehelper>
     </properties>
 
     <dependencyManagement>
