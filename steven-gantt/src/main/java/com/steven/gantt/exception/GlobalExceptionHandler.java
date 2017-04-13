@@ -1,6 +1,6 @@
 package com.steven.gantt.exception;
 
-import com.steven.gantt.controller.ErrorInfo;
+import com.steven.gantt.entity.ErrorInfo;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

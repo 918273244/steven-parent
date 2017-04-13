@@ -1,4 +1,4 @@
-package com.steven.gantt.controller;
+package com.steven.gantt.entity;
 
 /**
  * 异常信息
