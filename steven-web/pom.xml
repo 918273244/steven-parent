@@ -25,7 +25,24 @@
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
             </exclusions>-->
+
+
+
         </dependency>
+
+
+        <!--加入security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+        </dependency>
+
         <!--使用log4j，不使用默认的logback-->
        <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,11 +54,19 @@
             <artifactId>spring-boot-legacy</artifactId>
         </dependency>
         <!--要打成war包执行，去掉内嵌的tomcat-->
-       <!-- <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>-->
+
+
+        <!--使用freemarker模板-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>steven-web</finalName>

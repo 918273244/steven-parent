@@ -11,11 +11,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 @SpringBootApplication
 public class App {
 
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+ /*   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(App.class);
     }
-
-    public template void main(String[] args) {
+*/
+    public static void main(String[] args) {
         SpringApplication.run(App.class,args);
     }
 
