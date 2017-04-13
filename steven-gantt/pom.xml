@@ -64,6 +64,14 @@
             <version>${com.alibaba.druid}</version>
         </dependency>
 
+
+        <!-- mybatis分页依赖 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${com.github.pagehelper}</version>
+        </dependency>
+
     </dependencies>
 
 

@@ -1,5 +1,6 @@
 package com.steven.gantt.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.steven.gantt.entity.RoadMap;
 import com.steven.gantt.mapper.RoadMapMapper;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,10 @@ public class TestRoadMapController {
 
     @RequestMapping("/getRoadMap")
     @ResponseBody
-    public List<RoadMap> getRoadMap(){
+    public List<RoadMap> getRoadMap(int pageNum){
+
+        //第一个参数表示第几页,第二个显示每页数量
+        PageHelper.startPage(pageNum,2);
         List<RoadMap> list = roadMapMapper.getRoadMapList();
         return list;
     }
