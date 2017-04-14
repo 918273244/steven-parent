@@ -67,6 +67,13 @@
             <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
+        <!--使用mybatis-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${org.mybatis.spring.boot}</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>steven-web</finalName>
