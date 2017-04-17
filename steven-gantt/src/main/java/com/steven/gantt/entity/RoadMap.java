@@ -76,6 +76,15 @@ public class RoadMap {
     private long rmtId;//rmt  Id
     private Date updateTime;//更新时间
     private String status;//状态
+    private boolean typeFlag;//1：true 表示路标  0：false 解决方案 //
+
+    public boolean getTypeFlag() {
+        return typeFlag;
+    }
+
+    public void setTypeFlag(boolean typeFlag) {
+        this.typeFlag = typeFlag;
+    }
 
     public String getStatus() {
         return status;
