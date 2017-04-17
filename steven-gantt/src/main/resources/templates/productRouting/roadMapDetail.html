@@ -1,0 +1,179 @@
+
+    <div class="modal-dialog modal-lg" style="width: 900px;">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header" style="padding-top:10px;padding-bottom: 10px;">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="text-left">路标详情</h4>
+            </div>
+            <div class="modal-body ecommerce">
+                <div  class="form-horizontal clearfix row">
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标编号：</label>
+                        <div class="col-sm-7"><span><#if roadMap.roadNo ??>${roadMap.roadNo}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建时间：</label>
+                        <div class="col-sm-7"><span><#if roadMap.createdDate ??>${roadMap.createdDateValue}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建者姓名：</label>
+                        <div class="col-sm-7"><span><#if roadMap.createdBy ??>${roadMap.createdBy}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建者部门：</label>
+                        <div class="col-sm-7"><span><#if roadMap.departmentName ??>${roadMap.departmentName}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建者工号：</label>
+                        <div class="col-sm-7"><span><#if roadMap.createUserNo ??>${roadMap.createUserNo}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">联系方式：</label>
+                        <div class="col-sm-7"><span><#if roadMap.mobile ??>${roadMap.mobile}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">邮箱：</label>
+                        <div class="col-sm-7"><span><#if roadMap.email ??>${roadMap.email}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标名称：</label>
+                        <div class="col-sm-7"><span><#if roadMap.roadName ??>${roadMap.roadName}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标类型：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.roadTypeValue ??>${roadMap.roadTypeValue}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标优先级：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.roadPriorityValue ??>${roadMap.roadPriorityValue}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">外观形态：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.appearanceForm ??>${roadMap.appearanceForm}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">是否全新外观：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.newLookFlagValue ??>${roadMap.newLookFlagValue}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">硬件平台：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.hardwarePlatform ??>${roadMap.hardwarePlatform}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">计划启动时间：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.planStartTimeValue ??>${roadMap.planStartTimeValue}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">计划发布时间：</label>
+                        <div class="col-sm-7">
+                            <span><#if roadMap.planPublishTimeValue ??>${roadMap.planPublishTimeValue}</#if></span>
+                        </div>
+                    </div>
+                <!--    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">实际启动时间：</label>
+                        <div class="col-sm-7">
+                            <span>2017-03-12</span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">实际发布时间：</label>
+                        <div class="col-sm-7">
+                            <span>2017-06-05</span>
+                        </div>
+                    </div>-->
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">档次定位：</label>
+                        <div class="col-sm-7"><#if roadMap.marketPositionValue ??>${roadMap.marketPositionValue}</#if></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">目标市场：</label>
+                        <div class="col-sm-7"><span><#if roadMap.targetedMarketValue ??>${roadMap.targetedMarketValue}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">典型客户：</label>
+                        <div class="col-sm-7"><span><#if roadMap.typicalCustomers ??>${roadMap.typicalCustomers}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计生命周期（年）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.expectedLifeCycle ??>${roadMap.expectedLifeCycle}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售数量（台）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedSalesVolume ??>${roadMap.estimatedSalesVolume}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售均价（元）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedSalesPrice ??>${roadMap.estimatedSalesPrice}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计毛利率（百分比）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedGrossMargin ??>${roadMap.estimatedGrossMargin}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计投入研发费用（万元）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedRDExpenses ??>${roadMap.estimatedRDExpenses}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售金额（万元）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedSalesAmount ??>${roadMap.estimatedSalesAmount}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计毛利金额（万元）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedGrossAmount ??>${roadMap.estimatedGrossAmount}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计投入产出比（毛利/投入）：</label>
+                        <div class="col-sm-7"><span><#if roadMap.estimatedInOut ??>${roadMap.estimatedInOut}</#if></span></div>
+                    </div>
+                    <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">核心功能描述：</label>
+                        <div class="col-sm-9">
+                            <textarea disabled="disabled" name="content" style="width: 100%;height: 100px;"><#if roadMap.coreContent ??>${roadMap.coreContent}</#if></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">竞争分析：</label>
+                        <div class="col-sm-9">
+                            <textarea disabled="disabled" name="content" style="width: 100%;height: 100px;"><#if roadMap.competitionContent ??>${roadMap.competitionContent}</#if></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">客户价值：</label>
+                        <div class="col-sm-9">
+                            <textarea disabled="disabled" name="content" style="width: 100%;height: 100px;"><#if roadMap.customerContent ??>${roadMap.customerContent}</#if></textarea>
+                        </div>
+                    </div>
+                  <!--  <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">公司价值：</label>
+                        <div class="col-sm-9">
+                            <textarea disabled="disabled" name="content" style="width: 100%;height: 100px;"><#if roadMap.customerContent ??>${roadMap.customerContent}</#if></textarea>
+                        </div>
+                    </div>-->
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标继承关系：</label>
+                        <div class="col-sm-7 input-group">
+                            <span><#if roadMap.roadInheritName ??>${roadMap.roadInheritName}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标引用关系：</label>
+                        <div class="col-sm-7 input-group">
+                            <span><#if roadMap.roadQuotesName ??>${roadMap.roadQuotesName}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标配套关系：</label>
+                        <div class="col-sm-7 input-group">
+                            <span><#if roadMap.roadSupportName ??>${roadMap.roadSupportName}</#if></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标平台引用：</label>
+                        <div class="col-sm-7 input-group">
+                            <span><#if roadMap.roadPlatformName ??>${roadMap.roadPlatformName}</#if></span>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建类型：</label>
+                        <div class="col-sm-7" style="padding-top: 5px">
+                            <div class="checkDiv">
+                              <div class="col-sm-7">
+                                  <input name="type" class="radio" value="1" type="radio" /> <span>产品系列</span>
+                              </div>
+                              <div class="col-sm-5">
+                                  <input  name="type" class="radio" value="2" type="radio" /> <span>版本</span>
+                              </div>
+                          </div>
+                        </div>
+                   </div> -->
+                    <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">附件：</label>
+                        <div class="col-sm-7" style="padding-top: 5px">
+                            <div class="col-sm-7">
+                                requirment.doc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-primary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+<!-- end -->

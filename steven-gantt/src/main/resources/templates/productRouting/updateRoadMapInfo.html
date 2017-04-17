@@ -1,0 +1,437 @@
+<!-- 产品路标创建 -->
+<#if saveOrUpdateType =='save'>
+    <form id="updateInfo"  method="post" action="/user/updateUser.do" onsubmit="return saveTreeInfo()" >
+</#if>
+<#if saveOrUpdateType =='update'>
+    <form id="updateInfo"  method="post" action="/user/updateUser.do" onsubmit="return updateTreeInfo()" >
+</#if>
+        <div class="modal-dialog" style="width: 900px!important;">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header" style="padding-top:10px;padding-bottom: 10px;">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+                    <#if saveOrUpdateType =='save'>
+                        <h4 class="text-left">创建路标</h4>
+                    </#if>
+                    <#if saveOrUpdateType =='update'>
+                        <h4 class="text-left">更改路标</h4>
+                    </#if>
+
+                </div>
+                <div class="modal-body ecommerce" style="height: 500px;overflow-y: scroll;">
+                    <div  class="form-horizontal clearfix row">
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标编号：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" disabled="disabled" value="<#if roadMap.roadNo ??>${roadMap.roadNo}<#else>${roadMap_No}</#if>" ></div>
+                            <input type="hidden" name="roadNo" value="<#if roadMap.roadNo ??>${roadMap.roadNo}<#else>${roadMap_No}</#if>">
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建日期：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" disabled="disabled" value="<#if roadMap.createdDateValue ??>${roadMap.createdDateValue}<#else>${todayTime}</#if>" name="createdDate"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建者姓名：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" disabled="disabled" value="<#if userSession.userNickname ??>${userSession.userNickname}</#if>"></div>
+                            <input type="hidden" name="createdBy" value="<#if userSession.userNickname ??>${userSession.userNickname}</#if>">
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">部门：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" disabled="disabled"  value="<#if userSession.deptName ??>${userSession.deptName}</#if>"></div>
+                            <input type="hidden" name="departmentName" value="<#if userSession.deptName ??>${userSession.deptName}</#if>">
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">创建者工号：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" name="createUserNo"  value="<#if userSession.userName ??>${userSession.userName}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">联系方式：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" name="mobile" value="<#if userSession.mobile ??>${userSession.mobile}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">邮箱：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" name="email" value="<#if userSession.email ??>${userSession.email}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标名称<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" name="roadName" placeholder="" value="<#if roadMap.roadName ??>${roadMap.roadName}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标类型<font color="red">*</font>：</label>
+                            <div class="col-sm-7">
+                                <select class="js-example-basic-single form-control" id="type" style="width: 100%;" name="roadType">
+                                    <#if roadMap.roadType==1>
+                                        <option value="1" selected>产品开发路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType!=1>
+                                        <option value="1">产品开发路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType==2>
+                                        <option value="2" selected>技术平台开发路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType!=2>
+                                        <option value="2">技术平台开发路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType==3>
+                                        <option value="3" selected>技术预研路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType!=3>
+                                        <option value="3">技术预研路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType==4>
+                                        <option value="4" selected>解决方案路标</option>
+                                    </#if>
+                                    <#if roadMap.roadType!=4>
+                                        <option value="4">解决方案路标</option>
+                                    </#if>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标层级<font color="red">*</font>：</label>
+                            <div class="col-sm-7">
+                                <select class="js-example-basic-single form-control" id="level" style="width: 100%;" name="roadLevel">
+                                    <#if roadMap.roadLevel==1>
+                                        <option value="1" selected>产品系列</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel!=1>
+                                        <option value="1">产品系列</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel==2>
+                                        <option value="2" selected>产品子系列</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel!=2>
+                                        <option value="2">产品子系列</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel==3>
+                                        <option value="3" selected>产品</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel!=3>
+                                        <option value="3">产品</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel==4>
+                                        <option value="4" selected>版本</option>
+                                    </#if>
+                                    <#if roadMap.roadLevel!=4>
+                                        <option value="4">版本</option>
+                                    </#if>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标优先级<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><select class="js-example-basic-single form-control" id="priority" style="width: 100%;" name="roadPriority">
+                                <#if roadMap.roadPriority==1>
+                                    <option value="1" selected>很高</option>
+                                </#if>
+                                <#if roadMap.roadPriority!=1>
+                                    <option value="1">很高</option>
+                                </#if>
+                                <#if roadMap.roadPriority==2>
+                                    <option value="2" selected>高</option>
+                                </#if>
+                                <#if roadMap.roadPriority!=2>
+                                    <option value="2">高</option>
+                                </#if>
+                                <#if roadMap.roadPriority==3>
+                                    <option value="3" selected>中</option>
+                                </#if>
+                                <#if roadMap.roadPriority!=3>
+                                    <option value="3">中</option>
+                                </#if>
+                                <#if roadMap.roadPriority==4>
+                                    <option value="4" selected>低</option>
+                                </#if>
+                                <#if roadMap.roadPriority!=4>
+                                    <option value="4">低</option>
+                                </#if>
+                            </select></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">外观形态<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="appearanceForm" value="<#if roadMap.appearanceForm ??>${roadMap.appearanceForm}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">是否全新外观<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><select class="js-example-basic-single form-control" id="priority" style="width: 100%;" name="newLookFlag">
+                                <#if roadMap.newLookFlag==0>
+                                    <option value="0" selected>是</option>
+                                </#if>
+                                <#if roadMap.newLookFlag!=0>
+                                    <option value="0">是</option>
+                                </#if>
+                                <#if roadMap.newLookFlag==1>
+                                    <option value="1" selected>否</option>
+                                </#if>
+                                <#if roadMap.newLookFlag!=1>
+                                    <option value="1">否</option>
+                                </#if>
+                                <#if roadMap.newLookFlag==2>
+                                    <option value="2" selected>不涉及</option>
+                                </#if>
+                                <#if roadMap.newLookFlag!=2>
+                                    <option value="2">不涉及</option>
+                                </#if>
+                                <!--<option value="0">是</option>
+                                <option value="1">否</option>
+                                <option value="2">不涉及</option>-->
+                            </select></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">硬件平台<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="hardwarePlatform" value="<#if roadMap.hardwarePlatform ??>${roadMap.hardwarePlatform}</#if>"/></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">计划启动时间<font color="red">*</font>：</label>
+                            <div class="col-sm-7">
+                                <div  class="input-group date search_end">
+                                    <input type="text" id="search_end_date_value" class="form-control" name="planStartTime" value="<#if roadMap.planStartTimeValue ??>${roadMap.planStartTimeValue}</#if>">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">计划发布时间<font color="red">*</font>：</label>
+                            <div class="col-sm-7">
+                                <div class="input-group date search_end">
+                                    <input type="text" id="search_end_date_value" class="form-control" name="planPublishTime" value="<#if roadMap.planPublishTimeValue ??>${roadMap.planPublishTimeValue}</#if>">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">实际启动时间<font color="red">*</font>：</label>
+                              <div class="col-sm-7">
+                                  <div  class="input-group date search_end">
+                                  <input type="text" id="search_end_date_value" class="form-control">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                  </div>
+                              </div>
+                         </div>
+                         <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">实际发布时间<font color="red">*</font>：</label>
+                              <div class="col-sm-7">
+                                  <div class="input-group date search_end">
+                                  <input type="text" id="search_end_date_value" class="form-control">
+                                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                  </div>
+                              </div>
+                         </div>-->
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">市场定位<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><select class="js-example-basic-single form-control" id="priority" style="width: 100%;" name="marketPosition">
+                                <#if roadMap.marketPosition==0>
+                                    <option value="0" selected>高端</option>
+                                </#if>
+                                <#if roadMap.marketPosition!=0>
+                                    <option value="0">高端</option>
+                                </#if>
+                                <#if roadMap.marketPosition==1>
+                                    <option value="1" selected>中端</option>
+                                </#if>
+                                <#if roadMap.marketPosition!=1>
+                                    <option value="1">中端</option>
+                                </#if>
+                                <#if roadMap.marketPosition==2>
+                                    <option value="2" selected>低端</option>
+                                </#if>
+                                <#if roadMap.marketPosition!=2>
+                                    <option value="2">低端</option>
+                                </#if>
+                              <!--  <option value="0">高端</option>
+                                <option value="1">中端</option>
+                                <option value="2">低端</option>-->
+                            </select></div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="col-sm-5 control-label cartTxt">目标市场<font color="red">*</font>：</label>
+                            <div class="col-sm-7">
+                                <select class="js-example-basic-single form-control" id="priority" style="width: 100%;" name="targetedMarket">
+                                    <#if roadMap.targetedMarket==0>
+                                        <option value="0" selected>行业市场</option>
+                                    </#if>
+                                    <#if roadMap.targetedMarket!=0>
+                                        <option value="0">行业市场</option>
+                                    </#if>
+                                    <#if roadMap.targetedMarket==1>
+                                        <option value="1" selected>项目市场</option>
+                                    </#if>
+                                    <#if roadMap.targetedMarket!=1>
+                                        <option value="1">项目市场</option>
+                                    </#if>
+                                    <#if roadMap.targetedMarket==2>
+                                        <option value="2" selected>分销市场</option>
+                                    </#if>
+                                    <#if roadMap.targetedMarket!=2>
+                                        <option value="2">分销市场</option>
+                                    </#if>
+                                   <!-- <option value="0">行业市场</option>
+                                    <option value="1">项目市场</option>
+                                    <option value="2">分销市场</option>-->
+                                </select></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">典型客户<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="typicalCustomers" value="<#if roadMap.typicalCustomers ??>${roadMap.typicalCustomers}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计生命周期（年）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="expectedLifeCycle" value="<#if roadMap.expectedLifeCycle ??>${roadMap.expectedLifeCycle}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售数量（台）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedSalesVolume" value="<#if roadMap.estimatedSalesVolume ??>${roadMap.estimatedSalesVolume}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售均价（元）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedSalesPrice" value="<#if roadMap.estimatedSalesPrice ??>${roadMap.estimatedSalesPrice}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计毛利率（百分比）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedGrossMargin" value="<#if roadMap.estimatedGrossMargin ??>${roadMap.estimatedGrossMargin}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计投入研发费用（万元）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedRDExpenses" value="<#if roadMap.estimatedRDExpenses ??>${roadMap.estimatedRDExpenses}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计销售金额（万元）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedSalesAmount" value="<#if roadMap.estimatedSalesAmount ??>${roadMap.estimatedSalesAmount}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计毛利金额（万元）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedGrossAmount" value="<#if roadMap.estimatedGrossAmount ??>${roadMap.estimatedGrossAmount}</#if>"> </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">预计投入产出比（毛利/投入）<font color="red">*</font>：</label>
+                            <div class="col-sm-7"><input type="text" class="form-control" placeholder="" name="estimatedInOut" value="<#if roadMap.estimatedInOut ??>${roadMap.estimatedInOut}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">核心功能描述<font color="red">*</font>：</label>
+                            <div class="col-sm-9">
+                                <textarea class="" id="newsEditor1" name="coreContent" style="height: 80%" ><#if roadMap.coreContent ??>${roadMap.coreContent}</#if></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">性能：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" placeholder="" name="performance" value="<#if roadMap.performance ??>${roadMap.performance}</#if>">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">竞争分析<font color="red">*</font>：</label>
+                            <div class="col-sm-9">
+                                <textarea class="" id="newsEditor2" name="competitionContent" style="height: 80%"><#if roadMap.competitionContent ??>${roadMap.competitionContent}</#if> </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-12"><label class="col-sm-3 control-label cartTxt" style="width:168px;">客户价值：</label>
+                            <div class="col-sm-9">
+                                <textarea class="" id="newsEditor3" name="customerContent" style="height: 80%"><#if roadMap.customerContent ??>${roadMap.customerContent}</#if></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标继承关系：</label>
+                            <div class="col-sm-7 input-group" style="padding-left: 15px;">
+                                <input type="hidden" name="roadInheritId"/>
+                                <input class="form-control "  type="text" name="roadInheritName" readonly="readonly" id="roadInheritName_id" value="<#if roadMap.roadInheritName ??>${roadMap.roadInheritName}</#if>">
+                                <span class="input-group-btn">
+			                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal_create_solution" style="height:34px" onclick="roadInherit_search()"> 搜索</button> </span>
+                            </div>
+                        </div>
+
+
+                        <#if typeFlag == '0'>
+                            <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标引用关系：</label>
+                                <div class="col-sm-7 input-group" style="padding-left: 15px;">
+                                    <input type="hidden" name="roadQuotesId"/>
+                                    <input class="form-control " name="roadQuotesName" type="text" readonly="readonly" id="roadQuotesName_id" value="<#if roadMap.roadQuotesName ??>${roadMap.roadQuotesName}</#if>">
+                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal_create_solution2" style="height:34px" onclick="roadQuotes_search()"> 搜索</button> </span>
+                                </div>
+                            </div>
+                        </#if>
+                            <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标配套关系：</label>
+                                <div class="col-sm-7 input-group" style="padding-left: 15px;">
+                                    <input class="form-control "  type="text" name="roadSupportName" readonly="readonly" id="roadSupportName_id" value="<#if roadMap.roadSupportName ??>${roadMap.roadSupportName}</#if>">
+                                    <input  type="hidden" name="roadSupportID">
+                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal_create_solution3" style="height:34px" onclick="roadSupport_search()"> 搜索</button> </span>
+                                </div>
+                            </div>
+
+
+
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标平台依赖：</label>
+                            <div class="col-sm-7 input-group" style="padding-left: 15px;">
+                                <input class="form-control "  type="text" name="roadPlatformName" readonly="readonly" id="roadPlatformName_id" value="<#if roadMap.roadPlatformName ??>${roadMap.roadPlatformName}</#if>">
+                                <input type="hidden" name="roadPlatformID">
+                                <span class="input-group-btn">
+			                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal_create_solution4" style="height:34px" onclick="roadPlatform_search()"> 搜索</button> </span>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">路标图片：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="roadImage" value="<#if roadMap.roadImage ??>${roadMap.roadImage}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义1：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field1" value="<#if roadMap.field1 ??>${roadMap.field1}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义2：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field2" value="<#if roadMap.field2 ??>${roadMap.field2}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义3：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field3"  value="<#if roadMap.field3 ??>${roadMap.field3}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义4：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field4"  value="<#if roadMap.field4 ??>${roadMap.field4}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义5：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field5"  value="<#if roadMap.field5 ??>${roadMap.field5}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义6：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field6"  value="<#if roadMap.field6 ??>${roadMap.field6}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义7：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field7"  value="<#if roadMap.field7 ??>${roadMap.field7}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">自定义8：</label>
+                            <div class="col-sm-7"><input class="form-control "  type="text" name="field8"  value="<#if roadMap.field8 ??>${roadMap.field8}</#if>"></div>
+                        </div>
+                        <div class="form-group col-sm-6"><label class="col-sm-5 control-label cartTxt">上传附件：</label>
+                            <div class="col-sm-7 input-group" style="padding-left: 15px;">
+                                <input class="form-control "  type="text" name="uploadFile">
+                                <span class="input-group-btn">
+					                                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal1" style="height:34px"> 上传</button> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="<#if roadMapId ??>${roadMapId}</#if>">
+                <input type="hidden" name="parentId" id="parentId">
+                <input type="hidden" name="roadMapType" id="roadMapType">
+                <input type="hidden" name="typeFlag" id="typeFlag">
+                <input type="hidden" name="createdUserId" id="createdUserId" value="<#if userSession.userId ??>${userSession.userId}</#if>">
+
+                <div class="modal-footer">
+
+                    <#if saveOrUpdateType =='save'>
+                        <button type="button" class="btn btn-primary btn-primary" data-dismiss="modal" onclick="saveTreeInfo();">保存</button>
+                    </#if>
+                    <#if saveOrUpdateType =='update'>
+                        <button type="button" class="btn btn-primary btn-primary" data-dismiss="modal" onclick="updateTreeInfo();">保存</button>
+                    </#if>
+
+                    <button type="button" class="btn btn-primary btn-primary" data-dismiss="modal">提交申请</button>
+                    <button type="button" class="btn btn-primary btn-primary" data-dismiss="modal">取消</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+
+<script>
+    $(function(){
+        UE.delEditor("newsEditor1");
+        UE.delEditor("newsEditor2");
+        UE.delEditor("newsEditor3");
+        UE.getEditor('newsEditor1', {
+            elementPathEnabled: false, //删除元素路径
+            autoFloatEnabled:false,
+            initialFrameHeight:80 //初始化高度
+        });
+
+        UE.getEditor('newsEditor2', {
+            elementPathEnabled: false, //删除元素路径
+            autoFloatEnabled:false,
+            initialFrameHeight:80 //初始化高度
+        });
+
+        UE.getEditor('newsEditor3', {
+            elementPathEnabled: false, //删除元素路径
+            autoFloatEnabled:false,
+            initialFrameHeight:80 //初始化高度
+        });
+
+        jQuery(".search_end").datepicker({
+            todayBtn : "linked",
+            keyboardNavigation : false,
+            forceParse : false,
+            calendarWeeks : true,
+            autoclose : true,
+            value : new Date(),
+            format : "yyyy-mm-dd"
+        });
+
+
+    })
+</script>

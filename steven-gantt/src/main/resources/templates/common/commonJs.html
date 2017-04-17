@@ -1,0 +1,60 @@
+<script src="${request.contextPath }/assets/js/jquery/jquery-2.1.1.js"></script>
+<script src="${request.contextPath }/assets/js/bootstrap/bootstrap.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/jqGrid/i18n/grid.locale-en.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/jqGrid/jquery.jqGrid.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/select2/select2.full.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/cxselect/jquery.cxselect.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/iCheck/icheck.min.js"></script>
+<script src="${request.contextPath }/assets/js/ajaxJs.js"></script>
+<script src="${request.contextPath }/assets/js/inspinia.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="${request.contextPath }/assets/js/plugins/toastr/toastr.min.js"></script>
+
+<script src="${request.contextPath }/assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.i-checks').iCheck({
+		checkboxClass: 'icheckbox_square-green',
+		radioClass: 'iradio_square-green',
+	});
+	
+});
+function formajax(form,url,type,redirectUrl)
+{
+	jQuery.ajax(
+	{
+		cache: true,
+		type: "POST",
+		url:url,
+		data:form.serialize(),
+		async: false,
+		error: function(request) {
+		},
+		success: function(data) {
+			if(data == "success")
+			{
+				tip("Tips","Saved Successfully！")
+			}
+			if(type == 1){
+				window.location.href=redirectUrl;
+			}
+		}
+	});
+}
+function tip(title,context){
+	setTimeout(function() {
+	    toastr.options = {
+	        closeButton: true,
+	        progressBar: true,
+	        showMethod: 'slideDown',
+	        timeOut: 4000
+	    };
+	    toastr.success(context, title);
+	}, 1300);
+}
+</script>

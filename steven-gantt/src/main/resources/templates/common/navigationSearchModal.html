@@ -1,0 +1,10 @@
+<#list seniorSearchs as search>
+<tr>
+    <td>${search.id}</td>
+    <td>${search.searchName}</td>
+    <td>
+        <a href="javascript:void(0);" onclick="deleteSearch(${search.id})" title="删除"> <i class="fa fa-trash i_size"></i></a>
+        <a href="javascript:void(0);" onclick="updateSearchModal('${search.id}','${search.searchName}');" title="修改"> <i class="fa fa-exchange  i_size"></i></a>
+    </td>
+</tr>
+</#list>

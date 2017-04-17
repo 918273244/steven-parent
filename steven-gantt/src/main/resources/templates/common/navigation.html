@@ -1,0 +1,284 @@
+<div class="sidebar">
+	<nav class="navbar-default navbar-static-side" role="navigation" >
+		<div class="sidebar-header drop-shadow">
+			<img src="${request.contextPath }/assets/img/dahua_logo.png" class="img-responsive" alt="">
+		</div>
+		<div class="sidebar-collapse">
+			<ul class="nav metismenu" id="side-menu">
+				<li >
+					<a style="text-align: left;" class=" btn" href="${request.contextPath }/personalWorkbench/commonIndex"><i class="fa fa-home"></i>返回主页</a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-edit"></i> <span class="nav-label">个人工作台</span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						<li>
+							<a href="${request.contextPath }/personalWorkbench/commonIndex">通用工作台</a>
+						</li>
+						<li>
+							<a href="ETEindex.html">端到端工作台</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/seniorSearch/index">高级搜索</a>
+						</li>
+						<li>
+							<a href="authorityTransfer.html">工作代理</a>
+						</li>
+						<li>
+							<a href="applicationList.html">待批复申请列表</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-tasks"></i> <span class="nav-label">通用需求管理</span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						<li>
+							<a href="${request.contextPath }/cRequirement/commomRequirement">通用需求</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-table"></i> <span class="nav-label">端到端需求管理</span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						<li>
+							<a href="${request.contextPath }/ETERequirement/processList">端对端需求</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/eSubTask/subTaskList.do">端到端任务</a>
+						<li>
+                             <a href="endToEndDashBoard.html">端对端仪表盘</a>
+                         </li> 
+						</li>
+						<li>
+							<a href="myProcess.html">我的流程</a>
+						</li>
+						<li>
+							<a href="myTask.html">我的任务</a>
+						</li>
+						<li>
+							<a href="teamEdit.html">评审组管理</a>
+						</li>
+					    <li>
+							<a href="${request.contextPath }/config/functionAndDeveloper.html">功能模块和开发部门管理</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/config/dbProductLineManage.html">仪表盘产品线组织架构管理</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/config/noticeBoard.html">公共栏管理</a>
+						</li> 
+					</ul>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-line-chart"></i> <span class="nav-label">路标管理</span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						<li>
+							<a href="${request.contextPath }/productRouting/detail">路标</a>
+						</li>
+						<li>
+							<a href="charterList.html">立项材料包</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa fa-sun-o"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse">
+						<li>
+							<a href="attributeList.html">属性列表</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/system/holidaysList.do">节假日列表</a>
+						</li>
+						<li>
+							<a href="systemParameter.html">参数设置</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/area/areaListPage.do">区域管理</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/system/deparmentArea.html">部门区域关系</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/system/organization.html">组织管理</a>
+						</li>
+						<li>
+							<a href="${request.contextPath }/system/rmtList.do">RMT设置</a>
+						</li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="#"><i class="fa fa-paw"></i> 
+						<span class="nav-label">个人常用搜索<i  class="fa fa-pencil" style="font-size: small; margin-left: 20px;" onclick="editorSearch(event)"></i>
+							
+					   </span><span class="fa arrow"></span></a>
+					<ul class="nav nav-second-level collapse" id="personalSearch">
+					</ul>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</nav>
+
+</div>
+<div class="modal inmodal fade" id="edit-modal" tabindex="-1" role="dialog"  aria-hidden="true"> 
+			<div class="modal-dialog ">
+				<div class="modal-content">
+					 <div class="ibox-title">
+						                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+						                  <h5>用户信息</h5>
+						              </div>
+						<div class="modal-body">
+						  <div  class="form-horizontal">
+						   <div class="form-group">
+                               		<label class="col-sm-2 control-label cartTxt NoWrap">域账号：</label>
+                                      <div class="col-sm-4">
+                                      <input type="text" class="form-control" name="logonId" id="logonId" value="域账号01" readonly="true">
+								</div>
+                                    <label class="col-sm-2 control-label cartTxt NoWrap">姓名：</label>
+                                    <div class="col-sm-4"><input type="text" class="form-control" name="name" id="name" value="test01" readonly="true"></div>
+                               </div>
+                               <div class="form-group">
+                               		<label class="col-sm-2 control-label cartTxt NoWrap">手机：</label>
+                                      <div class="col-sm-4">
+                                      <input type="text" readonly="" value="18661086868"  class="form-control">
+								</div>
+                                    <label class="col-sm-2 control-label cartTxt NoWrap">邮箱：</label>
+                                    <div class="col-sm-4"><input type="text" readonly="" value="lily@dahua.com"  class="form-control"></div>
+                               </div>
+                                <div class="form-group">
+                               		<label class="col-sm-2 control-label cartTxt NoWrap">所在一级区域：</label>
+                                      <div class="col-sm-4">
+                                      <select class=" form-control">
+										<option value="1">中国</option>
+										<option value="2">海外</option>
+									</select>
+								</div>
+                                    <label class="col-sm-2 control-label cartTxt NoWrap">所在二级区域：</label>
+                                    <div class="col-sm-4"><select class=" form-control">
+										<option value="1">江苏</option>
+										<option value="2">浙江</option>
+									</select></div>
+                               </div>
+								<div class="form-group">
+                               		<label class="col-sm-3 control-label cartTxt NoWrap">是否为组织leader：</label>
+                                      <div class="col-sm-3">
+                                      <label class="radio-inline">
+										<input id="inlineradiobox1" value="50" type="radio">是</label>
+										<label class="radio-inline">
+										<input id="inlineradiobox2" value="50" type="radio">否</label>
+								</div>
+                                    <label class="col-sm-3 control-label cartTxt NoWrap">是否为决策人：</label>
+                                    <div class="col-sm-3"><label class="radio-inline">
+										<input id="inlineradiobox1" value="50" type="radio">是</label>
+										<label class="radio-inline">
+										<input id="inlineradiobox2" value="50" type="radio">否</label></div>
+                               </div>
+							
+							<hr>
+							<div class="form-group">
+                               		<label class="col-sm-2 control-label cartTxt NoWrap">用户组织名称：</label>
+                                      <div class="col-sm-4">
+                                      <select name="name1"  class="form-control select2"  style="width: 100%;">
+											<option id="1"> 无人机RMT</option>
+											<option id="2"> IPC RMT</option>
+										</select>
+								</div>
+                               </div>
+							
+							<div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+	                                    <tr>
+	                                        <th>已有用户组织 </th>
+	                                        <th>是否为组织leader </th>
+	                                        <th>操作</th>
+	                                    </tr>
+                                    </thead>
+                                    <tbody>
+	                                    <tr>
+	                                    	<td>无人机RMT</td>
+	                                        <td>是</td>
+	                                        <td><a href="#"><i class="fa fa-times text-danger"></i></a></td>
+	                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+							
+							
+							<div class="m-b-20"></div>
+							<div class="form-group">
+							   <div class="col-sm-12 col-sm-offset-3">
+								<button type="button" class="btn btn-primary">保存</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+<div class="modal inmodal" id="seniorSearchList" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header" style="padding-top:10px;padding-bottom: 10px;">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="text-left">高级搜索</h4>
+            </div>
+            <div class="">
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>搜索名称</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="seniorSearchTable">
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal inmodal" id="updateSearchModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header"
+                 style="padding-top: 10px; padding-bottom: 10px;">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="text-left">更新搜索</h4>
+            </div>
+            <div class="">
+                <div class="ibox-content">
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label cartTxt NoWrap">名称：</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" maxlength="100" id="updateSearchName">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="updateSearch()">保存</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
