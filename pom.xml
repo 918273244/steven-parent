@@ -11,6 +11,7 @@
     <modules>
         <module>steven-gantt</module>
         <module>steven-web</module>
+        <module>steven-admin</module>
     </modules>
 
     <properties>
@@ -22,6 +23,7 @@
         <com.alibaba.druid>1.0.18</com.alibaba.druid>
         <oracle.version>11.2.0</oracle.version>
         <com.github.pagehelper>4.1.0</com.github.pagehelper>
+        <com.alibaba.fastjson>1.2.15</com.alibaba.fastjson>
     </properties>
 
     <dependencyManagement>
