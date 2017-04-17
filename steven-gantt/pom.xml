@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.3</version>
+            <!--<version>11.2.0.3</version>-->
             <scope>system</scope>
             <systemPath>${basedir}/lib/ojdbc6.jar</systemPath>
         </dependency>
@@ -64,6 +64,11 @@
             <version>${com.alibaba.druid}</version>
         </dependency>
 
+        <!--加入security-->
+       <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>-->
 
         <!-- mybatis分页依赖 -->
         <dependency>
@@ -72,6 +77,11 @@
             <version>${com.github.pagehelper}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${com.alibaba.fastjson}</version>
+        </dependency>
     </dependencies>
 
 
