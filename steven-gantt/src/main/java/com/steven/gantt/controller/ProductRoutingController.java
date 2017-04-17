@@ -77,9 +77,9 @@ public class ProductRoutingController {
 		return model;
 	}
 
-	@RequestMapping("/getData.do")
+	@RequestMapping("/getData")
 	@ResponseBody
-	public String getProductRoutingData(ModelAndView model, HttpServletRequest request){
+	public String getProductRoutingData(){
 		List<RmtSys> sysList = systemService.getAllRmtList();
 		StringBuffer sb = new StringBuffer();
 		sb.append("[");
@@ -100,13 +100,12 @@ public class ProductRoutingController {
 
     /**
      * 创建目录或者版本
-     * @param model
      * @param request
      * @return
      */
-	@RequestMapping("/saveOrUpdate.do")
+	@RequestMapping("/saveOrUpdate")
     @ResponseBody
-    public int saveOrUpdate(ModelAndView model, HttpServletRequest request){
+    public int saveOrUpdate( HttpServletRequest request){
         WebForm webForm = new WebForm();
         RoadMap roadMap = webForm.toPo(request,RoadMap.class);
         int count = 0;
@@ -136,8 +135,8 @@ public class ProductRoutingController {
         return count;
     }
 
-    @RequestMapping("/getRoadMapData.do")
-    public String getRoadMapData(ModelAndView model, HttpServletRequest request){
+    @RequestMapping("/getRoadMapData")
+    public ModelAndView getRoadMapData(ModelAndView model, HttpServletRequest request){
     	String id = request.getParameter("id");
         RoadMap roadMap = roadMapService.getRoadMapDetailById(Long.parseLong(id));
         if (roadMap != null) {
@@ -145,8 +144,8 @@ public class ProductRoutingController {
         }else{
             model.addObject("roadMap",roadMapOne);
         }
-
-        return "productRouting/roadMapDetail";
+        model.setViewName("productRouting/roadMapDetail");
+        return model;
 
     }
 
@@ -156,8 +155,8 @@ public class ProductRoutingController {
      * @param request
      * @return
      */
-	@RequestMapping("/getRoadMapInfoDataById.do")
-    public String getRoadMapInfoDataById(ModelAndView model, HttpServletRequest request){
+	@RequestMapping("/getRoadMapInfoDataById")
+    public ModelAndView getRoadMapInfoDataById(ModelAndView model, HttpServletRequest request){
     	String id = request.getParameter("id");
         RoadMap roadMap = roadMapService.getRoadMapInfoDataById(Long.parseLong(id));
         model.addObject("roadMap",roadMap);
@@ -168,7 +167,8 @@ public class ProductRoutingController {
         }else{
             model.addObject("typeFlag","0");
         }
-        return "productRouting/updateRoadMapInfo";
+        model.setViewName("productRouting/updateRoadMapInfo");
+        return model;
 	}
 
     /**
@@ -177,8 +177,8 @@ public class ProductRoutingController {
      * @param request
      * @return
      */
-	@RequestMapping("/createRoadMapInfo.do")
-    public String createRoadMapInfo(ModelAndView model, HttpServletRequest request, String id){
+	@RequestMapping("/createRoadMapInfo")
+    public ModelAndView createRoadMapInfo(ModelAndView model, HttpServletRequest request, String id){
 	    long rmtId = Long.parseLong(id);
 	    String typeFlag = "1";
 	    if(rmtId<100000){
@@ -191,7 +191,8 @@ public class ProductRoutingController {
         }
         RoadMap roadMap = roadMapService.getRoadMapInfoDataById(rmtId);
         if( roadMap != null && roadMap.getRoadMapType() == 1){
-            return "productRouting/tips";
+            model.setViewName("productRouting/tips");
+            return model;
         }else {
             if (roadMap != null && !roadMap.getTypeFlag()){
                 //0表示解决方案
@@ -202,7 +203,9 @@ public class ProductRoutingController {
             model.addObject("typeFlag",typeFlag);
             model.addObject("todayTime",ProductRoutingController.getTodayDate());
             model.addObject("roadMap_No",roadMapService.getRoadMapNo());
-            return "productRouting/updateRoadMapInfo";
+            model.setViewName("productRouting/updateRoadMapInfo");
+            return model;
+
         }
 
 	}
@@ -213,7 +216,7 @@ public class ProductRoutingController {
      * @param request
      * @return
      */
-    @RequestMapping("/updateRoadMap.do")
+    @RequestMapping("/updateRoadMap")
     @ResponseBody
     public int updateRoadMap(ModelAndView model, HttpServletRequest request){
        WebForm webForm = new WebForm();
@@ -221,12 +224,10 @@ public class ProductRoutingController {
         int count = 0;
         count = roadMapService.updateRoadMap(roadMap);
         return count;
-
-
     }
 
 
-    @RequestMapping("/deleteRoadMapById.do")
+    @RequestMapping("/deleteRoadMapById")
     @ResponseBody
     public String deleteRoadMapById(ModelAndView model, HttpServletRequest request, String id){
         SingleRoadMapLists.getInstance().clear();
@@ -268,7 +269,7 @@ public class ProductRoutingController {
     }
 
 
-    @RequestMapping(value = "/roadMapLogData.do",method = RequestMethod.POST)
+    @RequestMapping(value = "/roadMapLogData",method = RequestMethod.POST)
     @ResponseBody
     public String roadMapLogData(ModelAndView model,  int page, int rows){
         int startIndex = (page - 1) * rows;
