@@ -341,7 +341,7 @@ public class RoadMapProvider {
     }
     public String  getVersionId(Map<String, Object> map){
         String id = (String) map.get("id");
-        StringBuffer sb = new StringBuffer("select id from roadmap where id ( ");
+        StringBuffer sb = new StringBuffer("select id from roadmap where id in ( ");
 //        StringBuffer sb = new StringBuffer("delete from roadmap where ROADMAPTYPE = 1 and id  in ( ");
         sb.append(id);
         sb.append(" ) and roadMapType = 1 ");
