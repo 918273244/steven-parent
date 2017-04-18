@@ -12,7 +12,7 @@ import javax.annotation.Resource;
  * Created by Steven on 2017/4/16.
  */
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
     @Resource
     private UserMapper userMapper;
     @Override

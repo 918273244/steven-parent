@@ -1,5 +1,6 @@
 package com.steven.gantt.dao;
 
+
 import com.steven.gantt.entity.User;
 
 /**
@@ -8,5 +9,5 @@ import com.steven.gantt.entity.User;
 public interface UserDao {
     public User findByUsername(String username);
 
-    public int saveUser(String username,  String password, String role);
+    public int saveUser(String username, String password, String role);
 }
