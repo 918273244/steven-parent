@@ -26,7 +26,7 @@ public class RoadMapProvider {
         if (!StringUtil.isNullOrEmpty(roadMap.getRoadNo())) {
             sql.VALUES("ROADNO","#{roadMap.roadNo}");
         }
-            sql.VALUES("CREATEDDATE","sysdate");
+            sql.VALUES("CREATEDDATE","now()");
         if (!StringUtil.isNullOrEmpty(roadMap.getCreatedBy())) {
             sql.VALUES("CREATEDBY","#{roadMap.createdBy}");
         }
@@ -172,7 +172,7 @@ public class RoadMapProvider {
             sql.VALUES("PARENTID","#{roadMap.parentId}");
         }
         sql.VALUES("TYPEFLAG","#{roadMap.typeFlag}");
-        sql.VALUES("UPDATETIME","sysdate");
+        sql.VALUES("UPDATETIME","now()");
         return sql.toString();
     }
 
@@ -306,7 +306,7 @@ public class RoadMapProvider {
         if (!StringUtil.isNullByLong(roadMap.getParentId())) {
             sql.VALUES("PARENTID","#{roadMap.parentId}");
         }
-        sql.SET("UPDATETIME=sysdate");
+        sql.SET("UPDATETIME=now()");
         sql.WHERE("ID = #{roadMap.id}");
         return sql.toString();
     }

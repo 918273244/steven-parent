@@ -24,9 +24,14 @@ public interface RoadMapMapper {
      * @param roadMap
      * @return
      */
-    @SelectKey(before = true, keyProperty = "roadMap.id", resultType = long.class, statement = { "select SEQ_ROADMAP.nextval from dual" },statementType= StatementType.STATEMENT)
+  /*  @SelectKey(before = true, keyProperty = "roadMap.id", resultType = long.class, statement = { "select SEQ_ROADMAP.nextval from dual" },statementType= StatementType.STATEMENT)
     @InsertProvider(type=RoadMapProvider.class,method="saveRoadMap")
     @Options(useGeneratedKeys = true, keyProperty = "roadMap.id")
+*/
+
+
+    @SelectKey(statement="SELECT LAST_INSERT_ID() AS id", keyProperty="roadMap.id", before=true, resultType=long.class)
+    @InsertProvider(type=RoadMapProvider.class,method="saveRoadMap")
     public int saveRoadMap(@Param("roadMap") RoadMap roadMap);
 
     @Select("select roadNo, to_char(createdDate,'yyyy-mm-dd') as createdDateValue, createdBy, departmentName,createUserNo,mobile,email,roadName, case roadType when 1 then '产品开发路标' when 2 then '技术平台开发路标' when 3 then '技术预研路标' when 4 then '解决方案路标' end as roadTypeValue, " +
@@ -93,15 +98,13 @@ public interface RoadMapMapper {
      * @param operationcontent
      * @return
      */
-    @Insert("insert into ROADMAPLOG (ID,CREATETIME,CREATEUSER,OPERATION,OPERATIONCONTENT) values (SEQ_ROADMAPLOG.NEXTVAL,sysdate,#{username},#{operation},#{operationcontent})")
+    @Insert("insert into ROADMAPLOG (ID,CREATETIME,CREATEUSER,OPERATION,OPERATIONCONTENT) values (SEQ_ROADMAPLOG.NEXTVAL,now(),#{username},#{operation},#{operationcontent})")
     public int addRoadMapLog(@Param("username") String username, @Param("operation") String operation, @Param("operationcontent") String operationcontent);
 
     /**
      * 获取roadMapLog日志列表
      * @param startIndex
      * @param endIndex
-     * @param page
-     * @param rows
      * @return
      */
     @Select("SELECT * FROM   (  SELECT A.ID,A.CREATEUSER,A.OPERATIONCONTENT,to_char(A.CREATETIME,'yyyy-mm-dd hh24:mi:ss') as CREATETIME,A.OPERATION, ROWNUM RN FROM ( SELECT * FROM roadmaplog  order by id desc ) A   WHERE ROWNUM <= #{endIndex}  )  WHERE RN > #{startIndex}")
