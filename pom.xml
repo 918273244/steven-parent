@@ -12,6 +12,7 @@
         <module>steven-gantt</module>
         <module>steven-web</module>
         <module>steven-admin</module>
+        <module>steven-security</module>
     </modules>
 
     <properties>
@@ -24,6 +25,7 @@
         <oracle.version>11.2.0</oracle.version>
         <com.github.pagehelper>4.1.0</com.github.pagehelper>
         <com.alibaba.fastjson>1.2.15</com.alibaba.fastjson>
+        <org.apache.poi>3.15</org.apache.poi>
     </properties>
 
     <dependencyManagement>
@@ -41,6 +43,55 @@
                 <artifactId>spring-boot-legacy</artifactId>
                 <version>1.0.2.RELEASE</version>
             </dependency>
+
+
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <!--<version>11.2.0.3</version>-->
+                <scope>system</scope>
+                <systemPath>${basedir}/lib/ojdbc6.jar</systemPath>
+            </dependency>
+<!--excel报表功能jar-->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${org.apache.poi}</version>
+            </dependency>
+
+            <!-- mybatis分页依赖 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${com.github.pagehelper}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${com.alibaba.fastjson}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${com.alibaba.druid}</version>
+            </dependency>
+
+            <!--使用mysql 链接-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--使用mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${org.mybatis.spring.boot}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
