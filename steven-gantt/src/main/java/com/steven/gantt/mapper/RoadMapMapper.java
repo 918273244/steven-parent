@@ -34,18 +34,18 @@ public interface RoadMapMapper {
     @InsertProvider(type=RoadMapProvider.class,method="saveRoadMap")
     public int saveRoadMap(@Param("roadMap") RoadMap roadMap);
 
-    @Select("select roadNo, to_char(createdDate,'yyyy-mm-dd') as createdDateValue, createdBy, departmentName,createUserNo,mobile,email,roadName, case roadType when 1 then '产品开发路标' when 2 then '技术平台开发路标' when 3 then '技术预研路标' when 4 then '解决方案路标' end as roadTypeValue, " +
+    @Select("select roadNo, date_format(createdDate,'yyyy-mm-dd') as createdDateValue, createdBy, departmentName,createUserNo,mobile,email,roadName, case roadType when 1 then '产品开发路标' when 2 then '技术平台开发路标' when 3 then '技术预研路标' when 4 then '解决方案路标' end as roadTypeValue, " +
             " case roadLevel when 0 then '是' when 1 then '产品系列' when 2 then '产品子系列' when 3 then '产品' when 4 then '版本' end as loadLevelValue, case newLookFlag when 0 then '是' when 1 then '否' when 2 then '不涉及' end as newLookFlagValue, " +
-            "case roadPriority when 1 then '很高' when 2 then '高' when 3 then '中' when 4 then '低' end as roadPriorityValue, appearanceForm, hardwarePlatform, to_char(planStartTime ,'yyyy-mm-dd') as planStartTimeValue, to_char(planPublishTime ,'yyyy-mm-dd') as planPublishTimeValue, " +
+            "case roadPriority when 1 then '很高' when 2 then '高' when 3 then '中' when 4 then '低' end as roadPriorityValue, appearanceForm, hardwarePlatform, date_format(planStartTime ,'yyyy-mm-dd') as planStartTimeValue, date_format(planPublishTime ,'yyyy-mm-dd') as planPublishTimeValue, " +
             " case marketPosition when 0 then '高端' when 1 then '中端' when 2 then '低端' end as  marketPositionValue, case targetedMarket when 0 then '行业市场' when 1 then '项目市场' when 2 then '分销市场' end as targetedMarketValue, typicalCustomers, expectedLifeCycle, estimatedSalesVolume, estimatedSalesPrice, estimatedGrossMargin, estimatedRDExpenses, estimatedSalesAmount," +
-            "estimatedGrossAmount, estimatedInOut, coreContent, performance, competitionContent, customerContent, roadInheritName, roadQuotesName, roadSupportName, roadImage,roadPlatformName, field1, field2, field3, field4, field5, field6, field7, field8, uploadFile,nvl(STATUS,'U') as STATUS, roadMapType, TYPEFLAG from ROADMAP where id = #{id} " )
+            "estimatedGrossAmount, estimatedInOut, coreContent, performance, competitionContent, customerContent, roadInheritName, roadQuotesName, roadSupportName, roadImage,roadPlatformName, field1, field2, field3, field4, field5, field6, field7, field8, uploadFile,IFNULL(STATUS,'U') as STATUS, roadMapType, TYPEFLAG from ROADMAP where id = #{id} " )
     public RoadMap getRoadMapDetailById(@Param("id") long id);
 
 
-    @Select("select ROADMAPTYPE, roadNo, to_char(createdDate,'yyyy-mm-dd') as createdDateValue, createdBy, departmentName,createUserNo,mobile,email,roadName,  roadType, " +
-            "  roadLevel,  newLookFlag,  roadPriority , appearanceForm, hardwarePlatform, to_char(planStartTime ,'yyyy-mm-dd') as planStartTimeValue, to_char(planPublishTime ,'yyyy-mm-dd') as planPublishTimeValue, " +
+    @Select("select ROADMAPTYPE, roadNo, date_format(createdDate,'yyyy-mm-dd') as createdDateValue, createdBy, departmentName,createUserNo,mobile,email,roadName,  roadType, " +
+            "  roadLevel,  newLookFlag,  roadPriority , appearanceForm, hardwarePlatform, date_format(planStartTime ,'yyyy-mm-dd') as planStartTimeValue, date_format(planPublishTime ,'yyyy-mm-dd') as planPublishTimeValue, " +
             "  marketPosition ,  targetedMarket , typicalCustomers, expectedLifeCycle, estimatedSalesVolume, estimatedSalesPrice, estimatedGrossMargin, estimatedRDExpenses, estimatedSalesAmount," +
-            "estimatedGrossAmount, estimatedInOut, coreContent, performance, competitionContent, customerContent, roadInheritName, roadQuotesName, roadSupportName,roadPlatformName, roadImage, field1, field2, field3, field4, field5, field6, field7, field8, uploadFile,nvl(STATUS,'U') as STATUS, TYPEFLAG  from ROADMAP where id = #{id} " )
+            "estimatedGrossAmount, estimatedInOut, coreContent, performance, competitionContent, customerContent, roadInheritName, roadQuotesName, roadSupportName,roadPlatformName, roadImage, field1, field2, field3, field4, field5, field6, field7, field8, uploadFile,IFNULL(STATUS,'U') as STATUS, TYPEFLAG  from ROADMAP where id = #{id} " )
     public RoadMap getRoadMapInfoDataById(@Param("id") long id);
 
     /**
@@ -98,7 +98,7 @@ public interface RoadMapMapper {
      * @param operationcontent
      * @return
      */
-    @Insert("insert into ROADMAPLOG (ID,CREATETIME,CREATEUSER,OPERATION,OPERATIONCONTENT) values (SEQ_ROADMAPLOG.NEXTVAL,now(),#{username},#{operation},#{operationcontent})")
+    @Insert("insert into ROADMAPLOG (CREATETIME,CREATEUSER,OPERATION,OPERATIONCONTENT) values (now(),#{username},#{operation},#{operationcontent})")
     public int addRoadMapLog(@Param("username") String username, @Param("operation") String operation, @Param("operationcontent") String operationcontent);
 
     /**
@@ -107,7 +107,7 @@ public interface RoadMapMapper {
      * @param endIndex
      * @return
      */
-    @Select("SELECT * FROM   (  SELECT A.ID,A.CREATEUSER,A.OPERATIONCONTENT,to_char(A.CREATETIME,'yyyy-mm-dd hh24:mi:ss') as CREATETIME,A.OPERATION, ROWNUM RN FROM ( SELECT * FROM roadmaplog  order by id desc ) A   WHERE ROWNUM <= #{endIndex}  )  WHERE RN > #{startIndex}")
+    @Select("  SELECT A.ID,A.CREATEUSER,A.OPERATIONCONTENT,date_format(A.CREATETIME,'yyyy-mm-dd hh24:mi:ss') as CREATETIME,A.OPERATION from roadmaplog A order by A.id desc  limit  #{startIndex}, #{endIndex}  ")
     public List<RoadMapLog> roadMapLogData(@Param("startIndex") int startIndex, @Param("endIndex") int endIndex);
 
 

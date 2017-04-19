@@ -8,6 +8,7 @@ import com.steven.gantt.entity.RmtSys;
 import com.steven.gantt.entity.RoadMap;
 import com.steven.gantt.service.RoadMapService;
 import com.steven.gantt.service.SystemService;
+import com.steven.gantt.util.RoadMapNo;
 import com.steven.gantt.util.SingleRoadMapLists;
 import com.steven.gantt.util.WebForm;
 import org.slf4j.Logger;
@@ -31,7 +32,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/productRouting")
-public class ProductRoutingController {
+public class ProductRoutingController extends BasisController{
 	@Resource
 	private SystemService systemService;
 
@@ -69,7 +70,7 @@ public class ProductRoutingController {
 		sb.append("]");
 
 
-//		String roadmap_no = roadMapService.getRoadMapNo();
+//		String roadmap_no = RoadMapNo.getNo();
 		model.addObject("treeJson",sb.toString());
         model.addObject("todayTime",ProductRoutingController.getTodayDate());
 //        model.addAttribute("roadMap_No",roadmap_no);
@@ -202,7 +203,7 @@ public class ProductRoutingController {
             model.addObject("saveOrUpdateType","save");
             model.addObject("typeFlag",typeFlag);
             model.addObject("todayTime",ProductRoutingController.getTodayDate());
-            model.addObject("roadMap_No",roadMapService.getRoadMapNo());
+            model.addObject("roadMap_No", RoadMapNo.getNo());
             model.setViewName("productRouting/updateRoadMapInfo");
             return model;
 
