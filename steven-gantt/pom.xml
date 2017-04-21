@@ -61,7 +61,7 @@
         <dependency>
             <groupId>com.easydbo</groupId>
             <artifactId>easydbo</artifactId>
-            <version>1.0</version>
+            <version>${com.easydbo.easydbo}</version>
         </dependency>
 
 
