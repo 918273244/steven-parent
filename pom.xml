@@ -28,15 +28,28 @@
         <org.apache.poi>3.15</org.apache.poi>
     </properties>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.2.RELEASE</version>
+    </parent>
+
     <dependencyManagement>
         <dependencies>
-            <dependency>
+           <!-- <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>1.5.2.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
+            </dependency>-->
+            <!--  <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.5.2.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>-->
             <!--如果要把springboot工程打包成war执行，需要该jar-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -45,13 +58,13 @@
             </dependency>
 
 
-            <dependency>
+           <!-- <dependency>
                 <groupId>com.oracle</groupId>
                 <artifactId>ojdbc6</artifactId>
-                <!--<version>11.2.0.3</version>-->
+                &lt;!&ndash;<version>11.2.0.3</version>&ndash;&gt;
                 <scope>system</scope>
-                <systemPath>${basedir}/lib/ojdbc6.jar</systemPath>
-            </dependency>
+                <systemPath>${pom.basedir}/lib/ojdbc6.jar</systemPath>
+            </dependency>-->
 <!--excel报表功能jar-->
             <dependency>
                 <groupId>org.apache.poi</groupId>
@@ -105,15 +118,23 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
             <!--改变编译版本-->
-            <plugin>
+        <!--    <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <extdirs>${pom.basedir}/lib</extdirs>
+                    </compilerArguments>
                 </configuration>
-            </plugin>
+                <version>3.1</version>
+            </plugin>-->
         </plugins>
     </build>
 
