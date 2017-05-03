@@ -13,12 +13,15 @@
         <module>steven-web</module>
         <module>steven-admin</module>
         <module>steven-security</module>
+        <module>steven-jdk8</module>
+        <module>eureka-server</module>
+        <module>eureka-client</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
         <mysql.version>5.1.21</mysql.version>
         <org.mybatis.spring.boot>1.1.1</org.mybatis.spring.boot>
         <com.alibaba.druid>1.0.18</com.alibaba.druid>
@@ -45,6 +48,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Dalston.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!--mvn clean package spring-boot:repackage -Dmaven.test.skip=true-->
             <!--  <dependency>
                 <groupId>org.springframework.boot</groupId>
