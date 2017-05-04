@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: provide-user
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://10.176.0.91:3306/cmstest?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
+    username: cmsuser01
+    password: passw0rd
+    initialSize: 5
+    tomcat:
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      time-between-eviction-runs-millis: 600000
+      min-evictable-idle-time-millis: 3000000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    dbcp2:
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/    # 指定注册中心的地址
+    healthcheck:
+      enabled: true #健康检查
+    registry-fetch-interval-seconds: 30 #拉取服务器注册信息时间
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
