@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 
 /**
  * userMapper
@@ -28,6 +30,8 @@ public interface UserMapper {
     public int saveUser(@Param("username") String username, @Param("password") String password, @Param("role") String role);
 
 
+    @Select("select * from users")
+    public List<User> userList();
 
     /*@Insert("insert into announcement (lastUpdateTime,seo_KeyWord,seo_Description,seo_Title,title,content,showStatus,url,deleteStatus,addTime,userid,status,fileName,info,sequence,advertPosId,lastUserId) "
             + "values (now(),#{announcement.seo_KeyWord},#{announcement.seo_Description},#{announcement.seo_Title},#{announcement.title},#{announcement.content},#{announcement.showStatus},#{announcement.url},#{announcement.deleteStatus},now(),#{announcement.userid},#{announcement.status},#{announcement.fileName},#{announcement.info},#{announcement.sequence},#{announcement.advertPosId},#{announcement.lastUserId})")

@@ -6,6 +6,7 @@ import com.steven.provider.user.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * dao
@@ -23,5 +24,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int saveUser(String username, String password, String role) {
         return userMapper.saveUser(username, password, role);
+    }
+
+    @Override
+    public List<User> userList() {
+        return userMapper.userList();
     }
 }

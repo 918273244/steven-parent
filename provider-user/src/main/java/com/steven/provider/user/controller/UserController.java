@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 /**
  * Created by Steven on 2017/5/3.
  */
@@ -23,8 +26,10 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{name}")
-    public User getUserByName(@PathVariable String name){
+    public User getUserByName(@PathVariable String name, HttpServletRequest request){
+
         User user = userService.findByUsername(name);
+        System.out.println("访问端口："+request.getServerPort());
         return user;
     }
 
@@ -34,6 +39,12 @@ public class UserController {
         String psd = bc.encode(password);
         userService.saveUser(username, psd,"ROLE_USER");
         return "success";
+    }
+
+    @GetMapping("/userList")
+    public List<User> userList(){
+        List<User> users = userService.userList();
+        return users;
     }
 
 
