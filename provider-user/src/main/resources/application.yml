@@ -1,6 +1,6 @@
 ---
 server:
-  port: 81001
+  port: 8101
 spring:
   profiles: peer1
   application:
@@ -39,7 +39,7 @@ eureka:
 
 ---
 server:
-  port: 81002
+  port: 8102
 spring:
   profiles: peer2
   application:
