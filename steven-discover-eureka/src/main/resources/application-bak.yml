@@ -30,3 +30,37 @@ eureka:
 
 #      java -jar steven.jar --spring.profiles.active=peer1
 #mvn clean package spring-boot:repackage -Dmaven.test.skip=true
+
+
+
+
+
+
+
+server:
+  port: 8761  #指定该Eureka实例的端口
+spring:
+  application:
+    name: erueka-server
+  cloud:
+    config:
+      discovery:
+        enabled: true
+eureka:
+  instance:
+    hostname: localhost # 指定该Eureka实例的主机名
+    prefer-ip-address: true  #显示ip地址
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${spring.application.instance_id:${server.port}}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    healthcheck:
+      enabled: true #健康检查
+    registry-fetch-interval-seconds: 30 #拉取服务器注册信息时间
+#  server:
+  #关闭自我保护
+#    enable-self-preservation: true
+#    eviction-interval-timer-in-ms:   清理间隔时间默认为60*1000
+

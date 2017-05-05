@@ -91,12 +91,13 @@
         </dependency>
 
         <!-- Oracle JDBC driver -->
-        <dependency>
+      <!--  <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <scope>system</scope>
-            <systemPath>${basedir}/lib/ojdbc6.jar</systemPath>
-        </dependency>
+            <systemPath>${pom.basedir}/lib/ojdbc6.jar</systemPath>
+            &lt;!&ndash;<systemPath>${basedir}/lib/ojdbc6.jar</systemPath>&ndash;&gt;
+        </dependency>-->
 
         <!--<dependency>
             <groupId>org.thymeleaf.extras</groupId>
