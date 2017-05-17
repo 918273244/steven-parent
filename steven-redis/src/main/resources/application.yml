@@ -1,4 +1,4 @@
-# REDIS (RedisProperties)  
+# REDIS (RedisProperties)
 spring.redis.database : # database name
 spring.redis.host=localhost:  # server host
 spring.redis.password:  # server password
@@ -9,3 +9,8 @@ spring.redis.pool.max-active: 8
 spring.redis.pool.max-wait: -1
 spring.redis.sentinel.master:  # name of Redis server
 spring.redis.sentinel.nodes: # comma-separated list of host:port pairs
+server:
+  port: 8089
+  session:
+    timeout: 1800
+  max-http-header-size: 20971520
