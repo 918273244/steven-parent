@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Test07 {
 
     public static void main(String[] args) {
-        BlockingQueue<Task> buffer = new LinkedBlockingQueue<>(Constants.MAX_BUFFER_SIZE);
+      /*  BlockingQueue<Task> buffer = new LinkedBlockingQueue<>(Constants.MAX_BUFFER_SIZE);
         ExecutorService es = Executors.newFixedThreadPool(Constants.NUM_OF_CONSUMER + Constants.NUM_OF_PRODUCER);
         for(int i = 1; i <= Constants.NUM_OF_PRODUCER; ++i) {
             es.execute(new Producer(buffer));
@@ -19,5 +19,6 @@ public class Test07 {
         for(int i = 1; i <= Constants.NUM_OF_CONSUMER; ++i) {
             es.execute(new Consumer(buffer));
         }
+*/
     }
 }
