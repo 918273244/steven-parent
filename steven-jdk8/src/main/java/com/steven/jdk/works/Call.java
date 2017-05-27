@@ -13,7 +13,7 @@ public class Call {
     public static void main(String[] args) {
         Worker worker = new Worker();
         //work传入work
-        Master master = new Master(worker,4);
+        Master master = new Master(worker,5);
         //生成100个task任务
         for (int i = 0; i <100 ; i++) {
             Task task = new Task();
