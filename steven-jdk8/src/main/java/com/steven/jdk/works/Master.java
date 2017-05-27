@@ -32,7 +32,7 @@ public class Master {
      * @param task
      */
     public void addQueue(Task task){
-        queue.add(task);
+        queue.offer(task);
     }
 
 
@@ -40,12 +40,12 @@ public class Master {
      * 开始执行
      */
     public void executor(){
-        System.out.println(queue.size()+";个数");
         for (Map.Entry<String, Thread> entry : hashMap.entrySet()){
-            ((Thread)entry.getValue()).start();
+            entry.getValue().start();
         }
     }
 
+    //判断线程是否执行完毕
     public boolean isComplete(){
         for (Map.Entry<String, Thread> entry : hashMap.entrySet()){
             if (entry.getValue().getState()!=Thread.State.TERMINATED){
@@ -81,5 +81,13 @@ public class Master {
     }
 
 
+    public int getResult(){
+        int ret = 0;
+        for(Map.Entry<String, Object> me : concurrentHashMap.entrySet()){
+            //汇总的逻辑..
+            ret += (Integer)me.getValue();
+        }
+        return ret;
+    }
 
 }

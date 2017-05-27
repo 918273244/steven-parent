@@ -23,27 +23,26 @@ public class Worker implements Runnable{
     @Override
     public void run() {
         while (true){
-            if (queue.poll() == null){
+            Task task = (Task) queue.poll();
+            if (task == null){
                 break;
             }else {
-                handler(queue);
+                Object obj = handler(task);
+                concurrentHashMap.put("任务id:"+task.getName(),obj);
             }
 
         }
 
     }
 
-    public void handler(ConcurrentLinkedQueue queue){
+    public Object handler(Task task){
+        Object o = null;
         try {
             Thread.sleep(50);
-            Task task =  (Task) queue.poll();
-            concurrentHashMap.put("任务id:"+task.getName(),task.getPrice());
+            o = task.getPrice();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       /* Task task =  (Task) queue.poll();
-        concurrentHashMap.put("任务id:"+task.getName(),task.getPrice());*/
-
-
+        return  o;
     }
 }
