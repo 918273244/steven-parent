@@ -58,12 +58,12 @@
             <optional>true</optional><!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.easydbo</groupId>
             <artifactId>easydbo</artifactId>
             <version>${com.easydbo.easydbo}</version>
         </dependency>
-
+-->
 
         <!--使用freemarker模板-->
         <dependency>
