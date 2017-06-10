@@ -26,8 +26,9 @@ public class SubReqClientHanler extends ChannelHandlerAdapter {
             req.setnSubReqID(i);
             req.setStrUserName("XXYY");
             ctx.write(req);
+            ctx.flush();
+
         }
-        ctx.flush();
     }
 
     @Override
