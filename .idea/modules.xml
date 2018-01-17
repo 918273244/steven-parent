@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/cloud-movie/cloud-movie.iml" filepath="$PROJECT_DIR$/cloud-movie/cloud-movie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-movie-feign/cloud-movie-feign.iml" filepath="$PROJECT_DIR$/cloud-movie-feign/cloud-movie-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/eureka-client/eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-netty/netty-client/netty-client.iml" filepath="$PROJECT_DIR$/steven-netty/netty-client/netty-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-netty/netty-common/netty-common.iml" filepath="$PROJECT_DIR$/steven-netty/netty-common/netty-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty-restful-server/netty-restful-server.iml" filepath="$PROJECT_DIR$/netty-restful-server/netty-restful-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-netty/netty-server/netty-server.iml" filepath="$PROJECT_DIR$/steven-netty/netty-server/netty-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-admin/steven-admin.iml" filepath="$PROJECT_DIR$/steven-admin/steven-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-common/steven-common.iml" filepath="$PROJECT_DIR$/steven-common/steven-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-discover-eureka/steven-discover-eureka.iml" filepath="$PROJECT_DIR$/steven-discover-eureka/steven-discover-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/steven-gantt/steven-gantt.iml" filepath="$PROJECT_DIR$/steven-gantt/steven-gantt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-jdk8/steven-jdk8.iml" filepath="$PROJECT_DIR$/steven-jdk8/steven-jdk8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-mybatis/steven-mybatis.iml" filepath="$PROJECT_DIR$/steven-mybatis/steven-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-netty/steven-netty.iml" filepath="$PROJECT_DIR$/steven-netty/steven-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/steven-parent.iml" filepath="$PROJECT_DIR$/steven-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-rabbitmq/steven-rabbitmq.iml" filepath="$PROJECT_DIR$/steven-rabbitmq/steven-rabbitmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-redis/steven-redis.iml" filepath="$PROJECT_DIR$/steven-redis/steven-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/steven-security/steven-security.iml" filepath="$PROJECT_DIR$/steven-security/steven-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/steven-web/steven-web.iml" filepath="$PROJECT_DIR$/steven-web/steven-web.iml" />
     </modules>
   </component>

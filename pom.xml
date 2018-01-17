@@ -16,6 +16,9 @@
         <module>steven-jdk8</module>
         <module>eureka-server</module>
         <module>eureka-client</module>
+        <module>steven-netty</module>
+        <module>steven-rabbitmq</module>
+        <module>steven-mybatis</module>
     </modules>
 
     <properties>
@@ -30,6 +33,7 @@
         <com.alibaba.fastjson>1.2.15</com.alibaba.fastjson>
         <org.apache.poi>3.15</org.apache.poi>
         <com.easydbo.easydbo>1.0</com.easydbo.easydbo>
+        <netty.version>5.0.0.Alpha2</netty.version>
     </properties>
 <!--打包引用这个-->
     <!--<parent>
@@ -119,6 +123,12 @@
                 <version>${org.mybatis.spring.boot}</version>
             </dependency>
 
+            <!--引入netty.jar-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>

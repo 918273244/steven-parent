@@ -6,14 +6,46 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cloud-movie" />
+        <module name="cloud-movie-feign" />
+        <module name="eureka-client" />
+        <module name="eureka-server" />
+        <module name="netty-client" />
+        <module name="netty-common" />
+        <module name="netty-server" />
+        <module name="steven-admin" />
+        <module name="steven-common" />
+        <module name="steven-discover-eureka" />
         <module name="steven-gantt" />
+        <module name="steven-jdk8" />
+        <module name="steven-mybatis" />
+        <module name="steven-rabbitmq" />
+        <module name="steven-redis" />
+        <module name="steven-security" />
         <module name="steven-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="steven-gantt" target="1.7" />
-      <module name="steven-parent" target="1.7" />
-      <module name="steven-web" target="1.7" />
+      <module name="cloud-movie" target="1.8" />
+      <module name="cloud-movie-feign" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="netty-client" target="1.8" />
+      <module name="netty-common" target="1.8" />
+      <module name="netty-restful-server" target="1.8" />
+      <module name="netty-server" target="1.8" />
+      <module name="steven-admin" target="1.8" />
+      <module name="steven-common" target="1.8" />
+      <module name="steven-discover-eureka" target="1.8" />
+      <module name="steven-gantt" target="1.8" />
+      <module name="steven-jdk8" target="1.8" />
+      <module name="steven-mybatis" target="1.8" />
+      <module name="steven-netty" target="1.8" />
+      <module name="steven-parent" target="1.8" />
+      <module name="steven-rabbitmq" target="1.8" />
+      <module name="steven-redis" target="1.8" />
+      <module name="steven-security" target="1.8" />
+      <module name="steven-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
