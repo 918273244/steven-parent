@@ -87,9 +87,9 @@
         <property name="dataSource" ref="multipleDataSource" />
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <tx:advice id="txAdvice" transaction-manager="transactionManager"></tx:advice>
+    <tx:advice id="txAdvice" transaction-manager="transactionManager" ></tx:advice>
 
     <!--读写分离设置-->
     <aop:config proxy-target-class="true" />

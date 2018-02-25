@@ -31,13 +31,19 @@ public class WhiteIpTest {
     @Test
     public void testInsert() {
         WhiteIP whiteIp = new WhiteIP();
-        whiteIp.setUserName("02322123");
+        whiteIp.setUserName("9");
         whiteIp.setIp("12.12.12");
-        whiteIpService.insert(whiteIp);
+        try {
+            whiteIpService.insert(whiteIp);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         logger.info(JSON.toJSONString(whiteIp));
 
     }
+
+
 
 
     @Test

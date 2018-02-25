@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface WhiteIpService {
 
-    void insert(WhiteIP whiteIp);
+    void insert(WhiteIP whiteIp) throws Exception;
 
     List<WhiteIP> findAll();
 

@@ -7,6 +7,7 @@ import com.steven.dao.WhiteIpMapper;
 import com.steven.service.WhiteIpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,8 +19,22 @@ public class WhiteIpServiceImpl implements WhiteIpService {
 
     @Override
     @DataSource(name = DataSource.master)
-    public void insert(WhiteIP whiteIp) {
-        whiteIpMapper.insert(whiteIp);
+    @Transactional
+    public void insert(WhiteIP whiteIp)  {
+        try {
+            whiteIpMapper.insert(whiteIp);
+            /**
+             * 测试事务功能
+             */
+            String str = null;
+            if(str.equals("")){
+                System.out.println("22222");
+            }
+            whiteIpMapper.insert(whiteIp);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
+
     }
 
     @Override
