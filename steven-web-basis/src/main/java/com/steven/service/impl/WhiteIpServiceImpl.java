@@ -26,11 +26,11 @@ public class WhiteIpServiceImpl implements WhiteIpService {
             /**
              * 测试事务功能
              */
-            String str = null;
+          /*  String str = null;
             if(str.equals("")){
                 System.out.println("22222");
             }
-            whiteIpMapper.insert(whiteIp);
+            whiteIpMapper.insert(whiteIp);*/
         } catch (Exception e) {
             throw new RuntimeException();
         }

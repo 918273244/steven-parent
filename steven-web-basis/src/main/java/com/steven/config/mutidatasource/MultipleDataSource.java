@@ -9,7 +9,6 @@ public class MultipleDataSource extends AbstractRoutingDataSource {
 
     public MultipleDataSource()
     {
-
     }
 
     @Override

@@ -7,7 +7,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>steven-web-basis</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>steven-web-basis Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
