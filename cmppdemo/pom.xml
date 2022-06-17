@@ -20,7 +20,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
         <shiro.version>1.2.3</shiro.version>
-        <com.alibaba.fastjson>1.2.15</com.alibaba.fastjson>
+        <com.alibaba.fastjson>1.2.83</com.alibaba.fastjson>
         <org.mybatis.spring.boot>1.1.1</org.mybatis.spring.boot>
         <com.alibaba.druid>1.0.18</com.alibaba.druid>
         <jstl.version>1.2</jstl.version>
